@@ -1,7 +1,3 @@
-import sys, os
-
-from generator import RSAKeyPairGenerator
-
 class RSACrypt:
     def __init__(self):
         self.open_key = None
@@ -48,16 +44,3 @@ class RSACrypt:
         for ch in encrypt_text:
             # yield (ch ** self.private_key) % self.modular
             yield self.qe2(ch, self.private_key, self.modular)
-
-
-if __name__ == '__main__':
-    rsg = RSAKeyPairGenerator()
-    public, private = rsg.generate_keys()
-    rsac = RSACrypt()
-    rsac.open_key = public[0]
-    rsac.private_key = private[0]
-    rsac.modular = public[1]
-    arr = map(ord, 'password')
-    enc = rsac.encrypt(arr)
-    dec = rsac.decrypt(enc)
-    pass

@@ -1,8 +1,9 @@
 import os, sys, shutil, random
 
-from generator import RSAKeyPairGenerator
-from rsacrypt import RSACrypt
-from lab3 import BlockCipherUtil, StandartEncryptionModes, VigenerCipher
+from libs.generator import RSAKeyPairGenerator
+from libs.rsacrypt import RSACrypt
+from libs.lab3 import BlockCipherUtil
+from libs.ciplib import StandartEncryptionModes, VigenerCipher
 
 class RSASimulation:
     def __init__(self, pass_filepath, message_filepath):
